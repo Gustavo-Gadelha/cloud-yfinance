@@ -1,7 +1,7 @@
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 
-CURRENT_TIMESTAMP: str = datetime.now(timezone.utc).strftime('%Y%m%d_%H%M')
+CURRENT_TIMESTAMP: str = datetime.now().strftime('%Y%m%d_%H%M')
 
 BASE_DIR: Path = Path().resolve()
 
