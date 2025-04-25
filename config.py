@@ -3,7 +3,7 @@ from pathlib import Path
 
 CURRENT_TIMESTAMP: str = datetime.now().strftime('%Y%m%d_%H%M')
 
-BASE_DIR: Path = Path().resolve()
+BASE_DIR: Path = Path(__file__).resolve().parent
 
 CSV_DIR: Path = BASE_DIR / 'csv'
 CSV_DIR.mkdir(exist_ok=True)
