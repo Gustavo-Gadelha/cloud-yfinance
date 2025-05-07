@@ -12,6 +12,7 @@ if IS_UBUNTU:
     APACHE_DOCUMENT_ROOT: Path = Path('/var/www/html').resolve()
 else:
     APACHE_DOCUMENT_ROOT: Path = BASE_DIR / 'var' / 'www'
+    APACHE_DOCUMENT_ROOT.mkdir(exist_ok=True, parents=True)
 
 LOG_DIR: Path = BASE_DIR / 'logs'
 LOG_DIR.mkdir(exist_ok=True)

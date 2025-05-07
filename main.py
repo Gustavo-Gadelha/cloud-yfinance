@@ -22,6 +22,7 @@ def download_history(symbol: str, period: str, interval: str) -> DataFrame | Non
         return ticker.history(period, interval)
     except Exception as e:
         logging.error(f'Erro ao baixar histórico de {symbol}: {e}')
+        return None
 
 
 if __name__ == '__main__':
@@ -33,7 +34,7 @@ if __name__ == '__main__':
     for symbol in tickers:
         logging.info(f'Processando {symbol}')
         history_data = download_history(symbol, '1d', '5m')
-        if history_data.empty:
+        if not history_data or history_data.empty:
             logging.warning(f'Nenhum dado histórico encontrado para {symbol}')
             continue
 
