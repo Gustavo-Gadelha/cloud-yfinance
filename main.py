@@ -34,7 +34,7 @@ if __name__ == '__main__':
     for symbol in tickers:
         logging.info(f'Processando {symbol}')
         history_data = download_history(symbol, '1d', '5m')
-        if not history_data or history_data.empty:
+        if history_data is None or history_data.empty:
             logging.warning(f'Nenhum dado histórico encontrado para {symbol}')
             continue
 
