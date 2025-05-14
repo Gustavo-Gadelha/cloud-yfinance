@@ -2,16 +2,16 @@ import platform
 from datetime import datetime
 from pathlib import Path
 
-IS_UBUNTU = 'ubuntu' in platform.platform().lower()
+IS_LINUX = 'linux' in platform.platform().lower()
 
 CURRENT_TIMESTAMP: str = datetime.now().strftime('%Y%m%d_%H%M')
 
 BASE_DIR: Path = Path(__file__).resolve().parent
 
-if IS_UBUNTU:
+if IS_LINUX:
     APACHE_DOCUMENT_ROOT: Path = Path('/var/www/html').resolve()
 else:
-    APACHE_DOCUMENT_ROOT: Path = BASE_DIR / 'var' / 'www'
+    APACHE_DOCUMENT_ROOT: Path = BASE_DIR / 'var' / 'www' / 'html'
     APACHE_DOCUMENT_ROOT.mkdir(exist_ok=True, parents=True)
 
 LOG_DIR: Path = BASE_DIR / 'logs'
